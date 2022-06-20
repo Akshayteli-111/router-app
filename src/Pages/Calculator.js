@@ -1,9 +1,41 @@
 import React from "react";
+import { useSearchParams } from "react-router-dom";
 
+export const Calculator = () => {
+  let url_string = window.location.href;
+  var url = new URL(url_string);
+  var num1 = Number(url.searchParams.get("num1"));
+  var num2 = Number(url.searchParams.get("num2"));
+  var op = url.searchParams.get("op");
+  console.log(num1, num2, op);
+  let ans = 0;
+  console.log(op);
+  switch (op) {
+    case " B": {
+      ans = num1 + num2;
+      break;
+    }
+    case "/": {
+      ans = num1 / num2;
+      break;
+    }
+    case "-": {
+      ans = num1 - num2;
+      break;
+    }
+    case "*": {
+      ans = num1 * num2;
+      break;
+    }
+    case "%": {
+      ans = num1 % num2;
+      break;
+    }
+  }
 
-export const Calculator = () =>{
-
-    return(
-        
-    )
-}
+  return (
+    <div>
+      Your calculation Result is <span id="calc-result">{ans}</span>
+    </div>
+  );
+};
