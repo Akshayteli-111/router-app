@@ -1,5 +1,4 @@
 import React from "react";
-import { useSearchParams } from "react-router-dom";
 
 export const Calculator = () => {
   let url_string = window.location.href;
@@ -11,7 +10,7 @@ export const Calculator = () => {
   let ans = 0;
   console.log(op);
   switch (op) {
-    case " B": {
+    case "+": {
       ans = num1 + num2;
       break;
     }
